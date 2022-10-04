@@ -165,6 +165,10 @@ int main()
         if (Number == 7) {
             cout << "";
         }
+
+        if (Number == 0) {
+            cout << "";
+        }
     } while (z < 10000000);
 
     return 0;
