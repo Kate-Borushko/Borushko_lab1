@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <conio.h>
 
 using namespace std;
 
@@ -10,10 +12,10 @@ int main()
 {
     void PrintMenu();
     {
-        cout << "MENU" << endl
+        cout << "____MENU____" << endl
             << "1. Add Pipe" << endl
             << "2. Add Compressor Station" << endl
-            << "3. View Objects" << endl
+            << "3. View all objects" << endl
             << "4. Edit Pipe" << endl
             << "5. Edit Station" << endl
             << "6. Save" << endl
@@ -32,20 +34,19 @@ int main()
             cin >> Number;
         }
 
-
         if (Number == 1) {
 
-            cout << "To create a new pipe fill in the gaps \nLength (100-1000): ";
+            cout << "To create a new pipe fill in the gaps \nLength (100-999): ";
             cin >> Length;
-            if (Length > 1000 or Length < 100) {
+            if (Length > 999 or Length < 100) {
 
                 cout << "You can't enter this number, please try again: ";
                 cin >> Length;
             }
 
-            cout << "Diametr (10-1000): ";
+            cout << "Diametr (10-99): ";
             cin >> Diametr;
-            if (Diametr > 1000 or Diametr < 10) {
+            if (Diametr > 99 or Diametr < 10) {
 
                 cout << "You can't enter this number, please try again: ";
                 cin >> Diametr;
@@ -60,18 +61,16 @@ int main()
             }
 
             cout << endl;
-            cout << "___PIPE___";
+            cout << "______PIPE______";
             cout << endl;
-            cout << "Length: "<<Length;
+            cout << "| Length: "<<Length<<"  |";
             cout << endl;
-            cout << "Diametr: "<<Diametr;
+            cout << "| Diametr: "<<Diametr<<"  |";
             cout << endl;
-            cout << "Condition: "<<Condition;
+            cout << "| Condition: "<<Condition<<" |";
             cout << endl;
-            cout << "Press any key to continue: ";
-
+            
         }
-
 
         if (Number == 2) {
             cout << "To create new compressor station fill in the gaps \nName: ";
@@ -93,82 +92,86 @@ int main()
                 cin >> Number_2;
             }
 
-            cout << "Efficiency (10-100): ";
+            cout << "Efficiency (10-99): ";
             cin >> Eff;
-            if (Eff > 100 or Eff < 10) {
+            if (Eff > 99 or Eff < 10) {
 
                 cout << "You can't enter this number, please try again: ";
                 cin >> Eff;
             }
 
             cout << endl;
-            cout << "___COMPRESSOR STATION___";
+            cout << "________COMPRESSOR STATION_________";
             cout << endl;
-            cout << "Name: " << Name;
+            cout << "| Name: " << Name<<"                    |";
             cout << endl;
-            cout << "Number of workshops: " << Number_1;
+            cout << "| Number of workshops: " << Number_1<<"         |";
             cout << endl;
-            cout << "Number of workshops in work: " << Number_2;
+            cout << "| Number of workshops in work: " << Number_2<<" |";
             cout << endl;
-            cout << "Efficiency: " << Eff;
+            cout << "| Efficiency: " << Eff<<"                  |";
             cout << endl;
-            cout << "Press any key to continue: ";
-        }
 
+        }
 
         if (Number == 3) {
-            cout << "___PIPE___";
+            cout << "______PIPE______";
             cout << endl;
-            cout << "Length: " << Length;
+            cout << "| Length: " << Length<<"  |";
             cout << endl;
-            cout << "Diametr: " << Diametr;
+            cout << "| Diametr: " << Diametr<<"  |";
             cout << endl;
-            cout << "Condition: " << Condition<<"\n";
+            cout << "| Condition: " << Condition<<" |"<<"\n";
             cout << endl;
-            cout << "___COMPRESSOR STATION___";
+            cout << "________COMPRESSOR STATION_________";
             cout << endl;
-            cout << "Name: " << Name;
+            cout << "| Name: " << Name << "                    |";
             cout << endl;
-            cout << "Number of workshops: " << Number_1;
+            cout << "| Number of workshops: " << Number_1 << "         |";
             cout << endl;
-            cout << "Number of workshops in work: " << Number_2;
+            cout << "| Number of workshops in work: " << Number_2 << " |";
             cout << endl;
-            cout << "Efficiency: " << Eff;
+            cout << "| Efficiency: " << Eff << "                  |";
             cout << endl;
-            cout << "Press any key to continue: ";
+
         }
 
-
-        if (Number == 4) 
+        if (Number == 4) {
             cout << "Condition (0 - Under repair, 1 - OK): ";
-        cin >> Condition;
-        if (Condition > 1 or Condition < 0) {
-
-            cout << "You can't enter this number, please try again: ";
             cin >> Condition;
-            cout << "Press any key to continue: ";
-        }
+            if (Condition > 1 or Condition < 0) {
 
+                cout << "You can't enter this number, please try again: ";
+                cin >> Condition;
+            }
+            if (Condition == 0)
+                cout << "Your pipe now is under repair.";
+            else
+                cout << "Your pipe is OK.";
+            cout << endl;
+        }
 
         if (Number == 5) {
-            cout << "To start workshop enter 0, to stop workshop enter 1 ";
+            cout << "To start workshop enter 0, to stop workshop enter 1: ";
             cin >> Work;
-            cout << "Press any key to continue: ";
+            cout << Work;
+            cout << endl;
         }
-
 
         if (Number == 6) {
-            cout << "";
+           // fout.open("data.txt", ios::out);
+           // fout << main;
+           // fout.close();
         }
-
 
         if (Number == 7) {
             cout << "";
         }
 
         if (Number == 0) {
-            cout << "";
+             exit(0);
         }
+
     } while (z < 10000000);
 
     return 0;
